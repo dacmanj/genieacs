@@ -209,7 +209,13 @@ function parameterValueList(
         }
       }
 
+      if (param && !param.endsWith("."))
+        return [Path.parse(param), parsed, valueType];
+      else  return [Path.parse(param.slice(0, -1)), parsed, valueType];
+      /*
+      Original:
       return [Path.parse(param), parsed, valueType];
+      */
     });
 }
 
